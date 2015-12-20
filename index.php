@@ -1,20 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-	<meta charset="UTF-8">
-	<title>Cbr Parral</title>
-</head>
-<body>
-
-<h1>Cbr Parral ...</h1>
-
-<?php
-
-include("buscar.html");
-
-
-?>
-
-	
-</body>
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+<?php 
+	include("header.html");
+?>
+</head>
+
+<body>
+
+<?php 
+	
+	include("buscar_general.php");
+
+ ?>
+	
+
+</body>
+
+<div class="container col-md-12 text-center">
+<?php 
+
+	
+	include("footer.html");
+
+ ?>
+</div>
 </html>

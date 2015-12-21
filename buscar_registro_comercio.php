@@ -19,18 +19,28 @@
 	$numero=$_POST['numero'];
 	$ano=$_POST['ano'];
 
-  	$res = $conexion->query("select * from $registro WHERE SOCIEDAD LIKE '%$nombre%' ORDER BY SOCIEDAD");
 
+    $res = $conexion->query("select * from $registro WHERE 
+                SOCIEDAD LIKE '%$nombre%' AND
+                FOJAS LIKE '%$fojas%' AND
+                NUM LIKE '%$numero%' AND
+                ANO LIKE '%$ano%' 
+                ORDER BY SOCIEDAD, ANO, NUM"); //TRAE LOS DATOS DE LA CONSULTA DE BUSQUEDA
 
 
 
 ?>
 <legend class="text-center">Busqueda Registro: <?php echo $registro; ?></legend>
-<div class="form-inline">
-	<label for="kwd_search">Filtrar:</label>
-	<input type="text" id="kwd_search" value=""/>
-	<a id="volver" class="btn btn-default" href="javascript:volver()">Regresar</a> 
-</div>
+
+<div class="form-inline col-md-12">
+    <div class="icon-addon addon-md">
+    <input type="text" id="kwd_search" value="" class="form-control label-search" placeholder="Filtrar..." />
+        <label for="filtrar" class="glyphicon glyphicon-search label-search" rel="tooltip" title="filtrar la tabla"></label>
+        &nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="index.php" class="btn btn-primary btn-info"> Regresar</a>
+
+  </div>
+</div>  
 <table id="my-table" border="1" style="border-collapse:collapse" class="table table-bordered table-hover ">
 	<thead>
    <tr>

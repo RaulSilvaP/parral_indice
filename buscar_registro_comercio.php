@@ -14,7 +14,7 @@
 <?php 
 	include('conexion/conexion.php');
 	$registro=$_POST['registro'];
-	$nombre=$_POST['nombre'];
+	$nombre=utf8_decode($_POST['nombre']);
 	$fojas=$_POST['fojas'];
 	$numero=$_POST['numero'];
 	$ano=$_POST['ano'];
@@ -58,7 +58,7 @@ while ($row = $res->fetch_assoc()) {
  
   <tr>
    <td><?php echo $row['TIPO']; ?></td>
-   <td><?php echo $row['SOCIEDAD']; ?></td>
+   <td><?php echo utf8_encode($row['SOCIEDAD']); ?></td>
    <td><?php echo $row['FOJAS'] ?></td>
    <td><?php echo $row['NUM']; ?></td>
    <td><?php echo $row['ANO']; ?></td>

@@ -14,11 +14,11 @@
 <?php 
 	include('conexion/conexion.php');
 	$registro=$_POST['registro'];
-	$nombre=$_POST['nombre'];
+	$nombre=utf8_decode($_POST['nombre']);
 	$fojas=$_POST['fojas'];
 	$numero=$_POST['numero'];
 	$ano=$_POST['ano'];
-	$propiedad=$_POST['propiedad'];
+	$propiedad=utf8_decode($_POST['propiedad']);
 	$rut=$_POST['rut'];
 	$rol=$_POST['rol'];
 	$comuna=$_POST['comuna'];
@@ -83,11 +83,11 @@ while ($row = $res->fetch_assoc()) {
  
   <tr>
    <td><?php echo $row['TIPO']; ?></td>
-   <td><?php echo $row['COMPRADOR']; ?></td>
+   <td><?php echo utf8_encode($row['COMPRADOR']); ?></td>
    <td><?php echo $row['FJS'] ?></td>
    <td><?php echo $row['NUM']; ?></td>
    <td><?php echo $row['ANO']; ?></td>
-   <td><?php echo $row['PROPIEDAD']; ?></td>
+   <td><?php echo utf8_encode($row['PROPIEDAD']); ?></td>
    <td>
    	
 
@@ -114,7 +114,7 @@ while ($row = $res->fetch_assoc()) {
 
               <div class="form-group">
                 <label for="nombre">Comprador</label>
-                <input type="text" class="form-control" id="nombre<?php echo $row['id']; ?>" value="<?php echo $row['COMPRADOR']; ?>">
+                <input type="text" class="form-control" id="nombre<?php echo $row['id']; ?>" value="<?php echo utf8_encode($row['COMPRADOR']); ?>">
               </div>
 
               <div class="form-group">
@@ -124,12 +124,12 @@ while ($row = $res->fetch_assoc()) {
 
               <div class="form-group">
                 <label for="vendedor">Vendedor/Acreedor</label>
-                <input type="text" class="form-control" id="vendedor<?php echo $row['id']; ?>" value="<?php echo $row['VENDEDOR']; ?>">
+                <input type="text" class="form-control" id="vendedor<?php echo $row['id']; ?>" value="<?php echo utf8_encode($row['VENDEDOR']); ?>">
               </div>
 
               <div class="form-group">
                 <label for="propiedad">Propiedad</label>
-                <input type="text" class="form-control" id="propiedad<?php echo $row['id']; ?>" value="<?php echo $row['PROPIEDAD']; ?>">
+                <input type="text" class="form-control" id="propiedad<?php echo $row['id']; ?>" value="<?php echo utf8_encode($row['PROPIEDAD']); ?>">
               </div>
 
 

@@ -124,3 +124,13 @@ tr th:last-child {
 .icon-addon:hover .fa {
     color: #2580db;
 }
+
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    padding-left:2%;
+    padding-right:2%;
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+}

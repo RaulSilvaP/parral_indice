@@ -8,7 +8,7 @@ $repertorio = $_POST['repertorio'];
 $fojas = $_POST['fojas'];
 //if($_POST['vuelta']=="v") {
 //	$vuelta="v";
-//}else{
+//}else{ 
 //	$vuelta = ' ';
 //}
 $numero = $_POST['numero'];
@@ -19,18 +19,19 @@ $comuna = $_POST['comuna'];
 $id = $_POST['id'];
 
 
-
+/*
      //MUESTRA DATOS PARA DEPURAR LA RECEPCION DE DATOS DESDE AJAX
 echo $id."<br/>";
 echo $tipo."<br/>";
 echo $nombre."<br/>";
 echo $fojas."<br/>";
-echo $rep."<br/>";
+echo $repertorio."<br/>";
 echo $numero."<br/>";
 echo $ano."<br/>";
 echo $rol."<br/>";
 echo $comuna."<br/>";
 exit;
+*/
 
 
 if(isset($_POST['id'])){

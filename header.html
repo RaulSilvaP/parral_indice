@@ -7,18 +7,17 @@
     <link rel="icon" href="images/favicon.ico">
     <title>Sistema índices CBR PARRAL</title>
 
-    <!-- Boostrap an Jquery js -->
-    <script src="js/jquery-2.1.4.min.js"></script>
-
- 
+    <!-- carga Jquery -->
+    <script src="js/jquery-1.11.1.js"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="css2/bootstrap.min.css" rel="stylesheet">
-
+    <link href="js/jquery-ui-1.11.2.custom/jquery-ui.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
     <!-- Personal css -->
     <link href="css2/estilos.css" rel="stylesheet">
-
-    <script src="js/bootstrap.js"></script>
 
     <!-- Personal js -->
     <script src="js/funciones.js"></script>
@@ -70,7 +69,7 @@
             </div>
           </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span  class = "glyphicon glyphicon-user" > </span> <?php echo $_SESSION['funcionario']; ?> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span  class = "glyphicon glyphicon-user" > </span> <?php echo "Funcionario" ?> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Mensajes Personales</a></li>
             <li><a href="#">Mensajes de la Oficina</a></li>

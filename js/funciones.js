@@ -17,7 +17,7 @@ jQuery(function($) {
 	        });
 	    }
     });
-
+ 
 	//MUESTRA FORMULARIO INGRESO
     $('#registro_ingreso').change(function(){  // Valida que un folio no esté repetido
         var registro = $('#registro_ingreso').val();        
@@ -186,7 +186,7 @@ function volver() {
         var ano = $('#ano'+id).val();
         var rol = $('#rol'+id).val();
         var comuna = $('#comuna'+id).val();
-        var datas="registro="+registro+"&tipo="+tipo+"&nombre="+nombre+"&fojas="+fojas+"&numero="+numero+"&ano="+ano+"&repertorio="+repertorio+"&rol="+rol+"&comuna="+comuna;
+        var datas="id="+id+"&registro="+registro+"&tipo="+tipo+"&nombre="+nombre+"&fojas="+fojas+"&numero="+numero+"&ano="+ano+"&repertorio="+repertorio+"&rol="+rol+"&comuna="+comuna;
         $.ajax({
            type: "POST",
            url: "updatedata_comercio.php",

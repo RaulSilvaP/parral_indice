@@ -18,7 +18,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="registro">Registro</label>
   <div class="col-md-4">
-    <select id="registro_ingreso" name="registro_ingreso" class="form-control">
+    <select id="registro_modifica" name="registro_modifica" class="form-control">
 			<option value="Seleccione el Registro" selected>Selecciones el Registro...</option>
 
 		<?php

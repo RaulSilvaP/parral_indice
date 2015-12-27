@@ -1,4 +1,18 @@
 jQuery(function($) {  
+
+
+    //FUNCION PARA IMPRIMIR LA PAGINA ANUAL
+    $('#imprimir_anual').click(function(){
+      var registro = $('#registro').val();
+      var ano = $('#ano').val();
+      $("#imprimir_anual").printPage({
+        type: "GET",
+        url: "imprime_anual2.php?registro="+registro+"&ano="+ano,
+        message: "Su documento está siendo generado..."
+      });
+    });
+
+
 	//MUESTRA FORMULARIO INGRESO
     $('#registro_ingreso').change(function(){  // Valida que un folio no esté repetido
         var registro = $('#registro_ingreso').val();        
@@ -81,6 +95,34 @@ jQuery(function($) {
 
 
 
+// GENERAR LISTADO ANUAL
+    $('#imprime_anual1').click(function(){
+      alert("hola");
+      return
+       var registro = $('#registro').val();
+       var ano = $('#ano').val();
+//       var bien_familiar = $('input:radio[name=bien_familiar]:checked').val();
+       if(ano=="") {   //valida que estos campos no esten vacios
+          data='<div id="Error" class="text-danger"><span class="glyphicon glyphicon-remove"></span> Error, algunos datos estan vacios</div>'
+          $('#respuesta').html(data).fadeIn(1000);
+          $('#respuesta').html(data).delay(4000).fadeOut(2000);
+          return
+       }
+       var datas="registro="+registro+"&ano="+ano;
+       $.ajax({
+        type: "POST",
+        url: "imprime_anual2.php",
+        data: datas
+      }).done(function( data ) {
+        $('#respuesta').html(data).fadeIn(1000);
+        $('#respuesta').html(data).delay(4000).fadeOut(2000);
+        $('#ano').focus();
+      });
+    });
+
+
+
+
 
 });// fin jquery
 
@@ -96,7 +138,8 @@ $.extend($.expr[":"],
 
 
 function volver() {
-	location.href = "index.php";
+  //location.href = "index.php";
+  window.history.back();
 }	
 
 
@@ -291,6 +334,33 @@ function volver() {
               viewdata_comercio(mensaje);
           }
       }
+
+
+      function deletedata_comercio2(str,mensaje){
+          if (confirm("¿Esta seguro de eliminar el registro?") == true) {
+            var id = str;
+          var registro = $('#registro').val();
+          var datas="registro="+registro+"&id="+id;
+            $.ajax({
+               type: "POST",
+               url: "deletedata_comercio.php",
+               data:datas
+            }).done(function( data ) {
+              $('#info').html(data).fadeIn(1000);
+              $('#info').html(data).delay(2000).fadeOut(1000);
+              viewdata_comercio2(mensaje,id,registro);
+              setTimeout (location.reload(), 5000);
+            });
+          } else {
+            var id = str;
+            var data ='<br/><br/><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Eligió no eliminar el registro.</div>';
+              $('#info').html(data).fadeIn(1000);
+              $('#info').html(data).delay(2000).fadeOut(1000);
+//              viewdata_comercio2(mensaje,id,registro);
+//              setTimeout (location.reload(), 5000);
+          }
+      }
+
 // FIN FUNCIONES CRUD DE COMERCIO
 
 
@@ -406,6 +476,32 @@ function volver() {
               viewdata_general(mensaje);
           }
       }
+
+       function deletedata_general2(str,mensaje){
+          if (confirm("¿Esta seguro de eliminar el registro?") == true) {
+            var id = str;
+          var registro = $('#registro').val();
+          var datas="registro="+registro+"&id="+id;
+            $.ajax({
+               type: "POST",
+               url: "deletedata_general.php",
+               data:datas
+            }).done(function( data ) {
+              $('#info').html(data).fadeIn(1000);
+              $('#info').html(data).delay(2000).fadeOut(1000);
+              viewdata_general2(mensaje,id,registro);
+              setTimeout (location.reload(), 5000);
+            });
+          } else {
+            var id = str;
+            var data ='<br/><br/><div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>Eligió no eliminar el registro.</div>';
+              $('#info').html(data).fadeIn(1000);
+              $('#info').html(data).delay(2000).fadeOut(1000);
+//              viewdata_general2(mensaje);
+          }
+      }      
 // FIN FUNCIONES CRUD DE REGISTRO EN GENERAL
+
+
 
 

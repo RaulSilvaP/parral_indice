@@ -1,3 +1,6 @@
+h2 {
+    color: #5d637c;
+}
 table {
   border-collapse: separate;
   border-spacing: 0 5px;
@@ -25,8 +28,10 @@ tr th:last-child {
 #logo1 {
 
 	display: inline-block;
-	height: 50px;
+	height: 60px;
 	float: left;
+
+
 
 /*
 	float: left;

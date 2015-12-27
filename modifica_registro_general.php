@@ -63,7 +63,8 @@ $query_Recordset1 = "SELECT * from $tipo WHERE
 		<input type="text" id="kwd_search" value="" class="form-control label-search" placeholder="Filtrar..." />
         <label for="filtrar" class="glyphicon glyphicon-search label-search" rel="tooltip" title="filtrar la tabla"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="index.php" class="btn btn-primary btn-info"> Regresar</a>
+<!--        <a href="index.php" class="btn btn-primary btn-info"> Regresar</a>   -->
+        <button type="button" class="btn btn-primary" onclick="volver();">Volver</button>
 
 	</div>
 </div>	
@@ -105,7 +106,7 @@ while ($row = $res->fetch_assoc()) {
    	
 
      <a title="Editar" id="editar" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal<?php echo $row['id']; ?>"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-     <a title="<?php echo $mensaje; ?>" class="btn btn-danger btn-sm" <?php echo $desabilitar; ?> onclick="deletedata_comercio('<?php echo $row['id']; ?>','<?php echo $mensaje; ?>')" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span><?php echo $mensaje; ?></a>
+     <a title="<?php echo $mensaje; ?>" class="btn btn-danger btn-sm" <?php echo $desabilitar; ?> onclick="deletedata_general2('<?php echo $row['id']; ?>','<?php echo $mensaje; ?>')" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span><?php echo $mensaje; ?></a>
      <!-- Modal -->
      <div class="modal fade" id="myModal<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel<?php echo $row['id']; ?>" aria-hidden="true">
       <div class="modal-dialog">

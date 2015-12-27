@@ -16,6 +16,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
     <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/jquery.printPage.js"></script>
     <!-- Personal css -->
     <link href="css2/estilos.css" rel="stylesheet">
 
@@ -52,10 +53,16 @@
 
 
 
-        <li> <a href="ingreso_indice.php">Ingresar índices </a></li>
-        <li><a href="modifica_indice.php">Modificar índices</a></li>
-        <li><a href="index.php">Buscar índices</a></li>
-        <li><a href="#">Imprimir informes</a></li>
+        <li> <a href="ingreso_indice.php"><span class="glyphicon glyphicon-save"></span> Ingresar índices </a></li>
+        <li><a href="modifica_indice.php"><span class="glyphicon glyphicon-pencil"></span> Modificar índices</a></li>
+        <li><a href="index.php"><span class="glyphicon glyphicon-search"></span> Buscar índices</a></li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class = "glyphicon glyphicon-print" ></span> Imprimir informes<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="imprime_anual.php">Listado anual</a></li>
+            <li><a href="imprime_tomo.php">Listado para empaste</a></li>
+          </ul>
+        </li>
         
       </ul>
       <ul class="nav navbar-nav navbar-right">

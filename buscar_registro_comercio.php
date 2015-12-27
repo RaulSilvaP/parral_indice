@@ -37,7 +37,8 @@
     <input type="text" id="kwd_search" value="" class="form-control label-search" placeholder="Filtrar..." />
         <label for="filtrar" class="glyphicon glyphicon-search label-search" rel="tooltip" title="filtrar la tabla"></label>
         &nbsp;&nbsp;&nbsp;&nbsp;
-        <a href="index.php" class="btn btn-primary btn-info"> Regresar</a>
+<!--        <a href="index.php" class="btn btn-primary btn-info"> Regresar</a>   -->
+        <button type="button" class="btn btn-primary" onclick="volver();">Volver</button>
 
   </div>
 </div>  

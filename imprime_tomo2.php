@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Indice Anual</title>
+  <title>Indice por Tomo</title>
     <!-- carga Jquery -->
     <script src="js/jquery-1.11.1.js"></script>
 
@@ -32,13 +32,19 @@
 <?php 
 	include('conexion/conexion.php');
 	$registro=$_GET['registro'];
-	$ano=$_GET['ano'];
+  $ano=$_GET['ano'];
+  $desde=$_GET['desde'];
+  $hasta=$_GET['hasta'];
+  $tomo=trim($_GET['tomo']);
+  if ($tomo<>"") {
+    $tomo=" Tomo N° ".$tomo;
+  }
 
 if ($registro=="COMERCIO") {
-    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' 
+    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' AND (NUM >= '$desde' AND NUM <= '$hasta')
                 ORDER BY SOCIEDAD, NUM"); //TRAE LOS DATOS DE LA CONSULTA DE BUSQUEDA
 }else{
-    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' 
+    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' AND (NUM >= '$desde' AND NUM <= '$hasta')
                 ORDER BY COMPRADOR, NUM"); //TRAE LOS DATOS DE LA CONSULTA DE BUSQUEDA
 }
       //TRAE EL NOMBRE LARGO DEL REGISTRO
@@ -48,7 +54,7 @@ if ($registro=="COMERCIO") {
 
 
 ?>
-<legend class="text-center">Indice Registro de <?php echo $nombre_largo." año ".$ano ?></legend>
+<legend class="text-center">Indice Registro de <?php echo $nombre_largo." año ".$ano.$tomo ?></legend>
 <table id="my-table" border="1" style="border-collapse:collapse" class="table table-bordered table-hover ">
 	<thead>
    <tr>

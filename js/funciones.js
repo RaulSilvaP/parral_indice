@@ -1,13 +1,28 @@
 jQuery(function($) {  
 
 
-    //FUNCION PARA IMPRIMIR LA PAGINA ANUAL
+    //FUNCION PARA IMPRIMIR INDICE ANUAL ANUAL
     $('#imprimir_anual').click(function(){
       var registro = $('#registro').val();
       var ano = $('#ano').val();
       $("#imprimir_anual").printPage({
         type: "GET",
         url: "imprime_anual2.php?registro="+registro+"&ano="+ano,
+        message: "Su documento está siendo generado..."
+      });
+    });
+
+
+    //FUNCION PARA IMPRIMIR INDICE POR TOMO
+    $('#imprimir_tomo').click(function(){
+      var registro = $('#registro').val();
+      var ano = $('#ano').val();
+      var desde = $('#desde').val();
+      var hasta = $('#hasta').val();
+      var tomo = $('#tomo').val();
+      $("#imprimir_tomo").printPage({
+        type: "GET",
+        url: "imprime_tomo2.php?registro="+registro+"&ano="+ano+"&desde="+desde+"&hasta="+hasta+"&tomo="+tomo,
         message: "Su documento está siendo generado..."
       });
     });

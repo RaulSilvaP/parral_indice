@@ -9,7 +9,7 @@ $hostname_indices = "localhost";
 //$password_indices = "1234";
 $database_indices = "cbrparral";   //SERVIDOR NOTEBOOK RAUL
 $username_indices = "root";
-$password_indices = "";
+$password_indices = "cbrparral2015";
 
 
 $conexion = mysqli_connect($hostname_indices, $username_indices, $password_indices, $database_indices) or die("Error ***** no se conecto al servidor... " . mysqli_error($conexion)); 

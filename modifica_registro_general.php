@@ -23,7 +23,7 @@
 	$rol=$_POST['rol'];
   $comuna=$_POST['comuna'];
 //  $repertorio=$_POST['repertorio'];
-  $vendedor=$_POST['vendedor'];
+  $vendedor=utf8_decode($_POST['vendedor']);
   $mensaje=" Eliminar";
 
   	$resp = $conexion->query("select * from REGISTRO WHERE nombre_corto='$registro' LIMIT 1");  //TRAE EL NOMBRE LARGO DEL REGISTRO
@@ -96,7 +96,7 @@ while ($row = $res->fetch_assoc()) {
   ?>
  
   <tr>
-   <td><?php echo $row['TIPO']; ?></td>
+   <td><?php echo utf8_encode($row['TIPO']); ?></td>
    <td><?php echo utf8_encode($row['COMPRADOR']); ?></td>
    <td><?php echo $row['FJS'] ?></td>
    <td><?php echo $row['NUM']; ?></td>
@@ -120,7 +120,7 @@ while ($row = $res->fetch_assoc()) {
             <form>
               <div class="form-inline">
                 <label for="tipo">Tipo</label>
-                <input type="text" class="form-control" id="tipo<?php echo $row['id']; ?>" value="<?php echo $row['TIPO']; ?>">
+                <input type="text" class="form-control" id="tipo<?php echo $row['id']; ?>" value="<?php echo utf8_encode($row['TIPO']); ?>">
                 <label for="rep">&nbsp;&nbsp;&nbsp;&nbsp;Repertorio</label>
                 <input type="text" class="form-control" id="repertorio<?php echo $row['id']; ?>" value="<?php echo $row['REP']; ?>">
               </div>

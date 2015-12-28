@@ -15,7 +15,6 @@ jQuery(function($) {
 
     //FUNCION PARA IMPRIMIR INDICE POR TOMO
     $('#imprimir_tomo').click(function(){
-      alert("hola");
       var registro = $('#registro').val();
       var ano = $('#ano').val();
       var desde = $('#desde').val();

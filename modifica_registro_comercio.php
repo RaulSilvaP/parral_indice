@@ -68,7 +68,7 @@ while ($row = $res->fetch_assoc()) {
   ?>
  
   <tr>
-   <td><?php echo $row['TIPO']; ?></td>
+   <td><?php echo utf8_encode($row['TIPO']); ?></td>
    <td><?php echo utf8_encode($row['SOCIEDAD']); ?></td>
    <td><?php echo $row['FOJAS'] ?></td>
    <td><?php echo $row['NUM']; ?></td>
@@ -100,7 +100,7 @@ while ($row = $res->fetch_assoc()) {
 
               <div class="form-group ">
                 <label class="control-label input-md" for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre<?php echo $row['id']; ?>" value="<?php echo $row['SOCIEDAD']; ?>" >
+                <input type="text" class="form-control" id="nombre<?php echo $row['id']; ?>" value="<?php echo utf8_encode($row['SOCIEDAD']); ?>" >
               </div>
 
               <div class="form-group ">

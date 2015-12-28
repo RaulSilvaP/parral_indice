@@ -58,7 +58,7 @@ while ($row = $res->fetch_assoc()) {
   ?>
  
   <tr>
-   <td><?php echo $row['TIPO']; ?></td>
+   <td><?php echo utf8_encode($row['TIPO']); ?></td>
    <td><?php echo utf8_encode($row['SOCIEDAD']); ?></td>
    <td><?php echo $row['FOJAS'] ?></td>
    <td><?php echo $row['NUM']; ?></td>

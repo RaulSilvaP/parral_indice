@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Indice Anual</title>
+  <title>Indice para revisión</title>
     <!-- carga Jquery -->
     <script src="js/jquery-1.11.1.js"></script>
 
@@ -28,17 +28,21 @@
 
 </head>
 <body>
+<button type="button" class="btn btn-sm" name="imprimir" onclick="window.print();">Imprimir</button>
+
 <?php 
 	include('conexion/conexion.php');
-	$registro=$_GET['registro'];
-	$ano=$_GET['ano'];
+	$registro=$_POST['registro'];
+  $ano=$_POST['ano'];
+  $desde=$_POST['desde'];
+  $hasta=$_POST['hasta'];
 
 if ($registro=="COMERCIO") {
-    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' 
-                ORDER BY SOCIEDAD, NUM"); //TRAE LOS DATOS DE LA CONSULTA DE BUSQUEDA
+    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' AND (NUM >= '$desde' AND NUM <= '$hasta')
+                ORDER BY NUM, SOCIEDAD"); //TRAE LOS DATOS DE LA CONSULTA DE BUSQUEDA
 }else{
-    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' 
-                ORDER BY COMPRADOR, NUM"); //TRAE LOS DATOS DE LA CONSULTA DE BUSQUEDA
+    $res = $conexion->query("select * from $registro WHERE ANO = '$ano' AND (NUM >= '$desde' AND NUM <= '$hasta')
+                ORDER BY NUM, COMPRADOR"); //TRAE LOS DATOS DE LA CONSULTA DE BUSQUEDA
 }
       //TRAE EL NOMBRE LARGO DEL REGISTRO
     $resp = $conexion->query("select * from REGISTRO WHERE nombre_corto='$registro' LIMIT 1");  
@@ -47,7 +51,7 @@ if ($registro=="COMERCIO") {
 
 
 ?>
-<legend class="text-center">Indice Registro de <?php echo $nombre_largo." año ".$ano ?></legend>
+<legend class="text-center">Revisión Registro de <?php echo $nombre_largo." año ".$ano." desde N° :".$desde." Hasta N° :".$hasta ?></legend>
 <table id="my-table" border="1" style="border-collapse:collapse" class="table table-bordered table-hover ">
 	<thead>
    <tr>
@@ -56,6 +60,7 @@ if ($registro=="COMERCIO") {
 <?php 
 if ($registro<>"COMERCIO") {
   echo "<th>Propiedad</th>";
+  echo "<th>Vendedor</th>";
 } ?>     
      <th>Fojas</th>
      <th>Número</th>
@@ -74,13 +79,14 @@ while ($row = $res->fetch_assoc()) {
   ?>
  
   <tr>
-   <td><?php echo $row['TIPO']; ?></td>
+   <td><?php echo utf8_encode($row['TIPO']); ?></td>
    <?php 
   if ($registro=="COMERCIO") {
     echo "<td>".utf8_encode($row['SOCIEDAD'])."</td>";
     echo "<td>".$row['FOJAS']."</td>";
   }else{
     echo "<td>".utf8_encode($row['COMPRADOR'])."</td>";
+    echo "<td>".utf8_encode($row['VENDEDOR'])."</td>";
     echo "<td>".utf8_encode($row['PROPIEDAD'])."</td>";
     echo "<td>".$row['FJS']."</td>";
   } ?>     

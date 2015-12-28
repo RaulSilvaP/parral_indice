@@ -15,6 +15,7 @@ jQuery(function($) {
 
     //FUNCION PARA IMPRIMIR INDICE POR TOMO
     $('#imprimir_tomo').click(function(){
+      alert("hola");
       var registro = $('#registro').val();
       var ano = $('#ano').val();
       var desde = $('#desde').val();
@@ -109,31 +110,6 @@ jQuery(function($) {
 	});
 
 
-
-// GENERAR LISTADO ANUAL
-    $('#imprime_anual1').click(function(){
-      alert("hola");
-      return
-       var registro = $('#registro').val();
-       var ano = $('#ano').val();
-//       var bien_familiar = $('input:radio[name=bien_familiar]:checked').val();
-       if(ano=="") {   //valida que estos campos no esten vacios
-          data='<div id="Error" class="text-danger"><span class="glyphicon glyphicon-remove"></span> Error, algunos datos estan vacios</div>'
-          $('#respuesta').html(data).fadeIn(1000);
-          $('#respuesta').html(data).delay(4000).fadeOut(2000);
-          return
-       }
-       var datas="registro="+registro+"&ano="+ano;
-       $.ajax({
-        type: "POST",
-        url: "imprime_anual2.php",
-        data: datas
-      }).done(function( data ) {
-        $('#respuesta').html(data).fadeIn(1000);
-        $('#respuesta').html(data).delay(4000).fadeOut(2000);
-        $('#ano').focus();
-      });
-    });
 
 
 

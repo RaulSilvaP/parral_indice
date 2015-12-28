@@ -1,4 +1,8 @@
-
+ <?php 
+//   include('funciones.php');
+   session_start();
+//   sesion();
+ ?>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,6 +26,7 @@
 
     <!-- Personal js -->
     <script src="js/funciones.js"></script>
+    <script src="js/login.js"></script>
 <div id="container-fluid col-md-12">
     <div id="form-inline">
       <span id="logo" class="col-md-3">
@@ -60,7 +65,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class = "glyphicon glyphicon-print" ></span> Imprimir informes<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="imprime_anual.php">Listado anual</a></li>
-            <li><a href="imprime_tomo.php">Listado para empaste</a></li>
+            <li><a href="imprime_tomo.php">Listado por Tomo</a></li>
           </ul>
         </li>
         
@@ -69,20 +74,22 @@
           <li class="dropdown" id="menuLogin">
             <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="navLogin">Login <b class="caret"></b></a>
             <div class="dropdown-menu" style="padding:17px;">
-              <form class="form" id="formLogin"> 
-                <input name="username" id="username" type="text" placeholder="Nombre de usuario"> 
+              <form class="form" id="formLogin" > 
+                <input name="usuario" id="usuario" type="text" placeholder="Nombre de usuario"> 
                 <input name="password" id="password" type="password" placeholder="Contraseña"><br>
-                <button type="button" id="btnLogin" class="btn">Login</button>
+                <button type="button" id="login" name="login" class="btn">Login</button><br/><br/>
+                <div class="alert-warning btn-sm" id="add_war"></div>
+                <div class="alert-danger error btn-sm" id="add_err"></div>
               </form>
             </div>
           </li>
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span  class = "glyphicon glyphicon-user" > </span> <?php echo "Funcionario" ?> <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span  class = "glyphicon glyphicon-user" > </span> <?php echo $_SESSION['funcionario']; ?> <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Configuración de mi cuenta</a></li>
-            <li><a href="#">Administrar cuentas</a></li>
+            <li><a href="#">Configuración de mi cuenta</a></li>   <!--  mi_cuenta.php  -->
+            <li><a href="#">Administrar cuentas</a></li>   <!--  admin_cuenta.php  -->
             <li class="divider"></li>
-            <li><a href="#">Cerrar sesión</a></li>
+            <li><a href="logout.php">Cerrar sesión</a></li>
           </ul>
         </li>
       </ul>

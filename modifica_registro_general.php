@@ -135,6 +135,7 @@ while ($row = $res->fetch_assoc()) {
               <div class="form-group">
                 <label for="rut">Rut</label>
                 <input type="text" class="form-control" id="rut<?php echo $row['id']; ?>" value="<?php echo $row['RUT']; ?>">
+                <span class="help-block btn-xs">Ejem. 01.234.567-8</span>
               </div>
 
               <div class="form-group">

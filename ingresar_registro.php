@@ -115,6 +115,7 @@
   <label class="col-md-4 control-label" for="textinput">Rut</label>  
   <div class="col-md-2">
   <input id="rut" name="rut" type="text" placeholder="Rut" class="form-control input-md">
+  <span class="help-block btn-xs">Ejem. 01.234.567-8</span>
   </div>
 </div>
 

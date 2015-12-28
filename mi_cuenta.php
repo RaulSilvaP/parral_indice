@@ -5,9 +5,7 @@
 <head>
 
 <?php 
-
 	include("header.html");
-
 ?>
 </head>
 
@@ -15,7 +13,7 @@
 
 <?php 
 	
-	include("buscar_general.php");
+	include("mi_cuenta1.php");
 
  ?>
 	

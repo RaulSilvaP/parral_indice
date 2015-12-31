@@ -1,6 +1,7 @@
 jQuery(function($) {  
 
 
+
     //FUNCION PARA IMPRIMIR INDICE ANUAL ANUAL
     $('#imprimir_anual').click(function(){
       var registro = $('#registro').val();
@@ -115,6 +116,7 @@ jQuery(function($) {
 
 
 });// fin jquery
+
 
 
 // jQuery expression for case-insensitive filter (filtrado de datos en la tabla desplegada de la busueda)
@@ -491,6 +493,7 @@ function volver() {
           }
       }      
 // FIN FUNCIONES CRUD DE REGISTRO EN GENERAL
+
 
 
 

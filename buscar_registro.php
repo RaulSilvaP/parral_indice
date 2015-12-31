@@ -69,6 +69,9 @@
 <!-- campo oculto para enviar el nombre del registro -->
 <input id="registro" name="registro" type="hidden" value="<?php echo $registro; ?>">
 
+
+ 
+
 <!-- Text input-->
 <div class="form-group">
   <label class="col-md-4 control-label" for="textinput">Comprador</label>  
@@ -150,14 +153,6 @@
 
 
 	}
-
-
-
-
-
-
-
-
 
 
 

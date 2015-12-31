@@ -16,8 +16,8 @@
     <!-- Personal css -->
     <link href="css2/estilos.css" rel="stylesheet">
 
-    <!-- Personal js 
-    <script src="js/funciones.js"></script>  -->
+    <!-- Personal js -->
+    <script src="js/funciones.js"></script>  
 <div id="container-fluid col-md-12">
     <div id="form-inline">
       <span id="logo" class="col-md-3">
@@ -52,19 +52,23 @@ if ($registro=="COMERCIO") {
 
 ?>
 <legend class="text-center">Revisión Registro de <?php echo $nombre_largo." año ".$ano." desde N° :".$desde." Hasta N° :".$hasta ?></legend>
-<table id="my-table" border="1" style="border-collapse:collapse" class="table table-bordered table-hover ">
+<table id="my-table" border="1" style="border-collapse:collapse; font-size:10px;" class="table table-bordered table-hover" NOWRAP>
 	<thead>
    <tr>
      <th>Tipo</th>
-     <th>Nombre</th>
 <?php 
-if ($registro<>"COMERCIO") {
-  echo "<th>Propiedad</th>";
+if ($registro=="COMERCIO") {
+  echo "<th>Nombre</th>";
+}else{
+  echo "<th>Comprador</th>";
+  echo "<th>Rut</th>";
   echo "<th>Vendedor</th>";
+  echo "<th>Propiedad</th>";
+  echo "<th>Rol</th>";
+  echo "<th>Comuna</th>";
 } ?>     
      <th>Fojas</th>
      <th>Número</th>
-     <th>Año</th>
    </tr>
  </thead>
  <tbody>
@@ -86,12 +90,14 @@ while ($row = $res->fetch_assoc()) {
     echo "<td>".$row['FOJAS']."</td>";
   }else{
     echo "<td>".utf8_encode($row['COMPRADOR'])."</td>";
+    echo "<td>".$row['RUT']."</td>";
     echo "<td>".utf8_encode($row['VENDEDOR'])."</td>";
     echo "<td>".utf8_encode($row['PROPIEDAD'])."</td>";
+    echo "<td>".$row['ROL']."</td>";
+    echo "<td>".$row['COMUNA']."</td>";
     echo "<td>".$row['FJS']."</td>";
   } ?>     
    <td><?php echo $row['NUM']; ?></td>
-   <td><?php echo $row['ANO']; ?></td>
   </tr>
 <?php
 }

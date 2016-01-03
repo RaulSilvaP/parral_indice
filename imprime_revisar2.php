@@ -8,10 +8,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="css2/bootstrap.min.css" rel="stylesheet">
-    <link href="js/jquery-ui-1.11.2.custom/jquery-ui.css" rel="stylesheet">
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-ui-1.11.2.custom/jquery-ui.min.js"></script>
-    <script src="js/jquery.maskedinput.min.js"></script>
     <script src="js/jquery.printPage.js"></script>
     <!-- Personal css -->
     <link href="css2/estilos.css" rel="stylesheet">

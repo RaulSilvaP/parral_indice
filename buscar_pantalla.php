@@ -65,10 +65,11 @@
         </div>
       </div>
       <!-- campo oculto para enviar el nombre del registro -->
-      <input type="text" id="registro2">
+      <input type="hidden" id="registro">
       <div id="form_buscar_pantalla"> 
         <div id="comercio">
           <form name="formulario" class="form-horizontal" method="post" action="buscar_registro_comercio.php">
+		      <input type="hidden" id="registro">
 
             <!-- Text input-->
             <div class="form-group">
@@ -118,6 +119,7 @@
 
           <div id="otroregistro">
             <form name="formulario" class="form-horizontal" method="post" action="buscar_registro_general.php">
+		      <input type="hidden" id="registro">
 
               <!-- Text input-->
               <div class="form-group">
@@ -194,12 +196,13 @@
       </fieldset>
       </div>
 
+
+<!--
       <div class="fTab">
         <span class="icon-android-keyboard"></span>&nbsp;&nbsp;TECLADO
       </div>
       <footer>
        <div id="teclado" class="container">
-         <!--  Aquí va el contenido del teclado virtual -->
 
          <br/>
          <br/>
@@ -270,6 +273,9 @@
 
     </div>
   </footer>
+-->
+
+
   <script>
 
 jQuery(function($) {  
@@ -278,7 +284,8 @@ jQuery(function($) {
 
   //MUESTRA FORMULARIO BUSQUEDA
     $('#registro1').change(function(){  // Valida que un folio no esté repetido
-        var registro = $('#registro1').val();        
+        var registro = $('#registro1').val(); 
+        $('#registro').val(registro);      
         if (registro=="Seleccione el Registro") {
             $('#form_buscar_pantalla').hide();
         }else{
@@ -311,7 +318,7 @@ jQuery(function($) {
 	      cuenta=0;
 	  });
 	}
-	footer();
+//	footer();
 
 
 
@@ -427,18 +434,15 @@ function seleccion_campo() { } //fin funcion otro registro
 
 */
 
-
-
 $('.teclado').keyboard({
     usePreview: false,
     position: {
         of: '#keyboard-wrapper',
         my: 'center top',
         at: 'center bottom',
-        offset: '0 40'
+        offset: '0 20'
     }
 });
-
 
 
 

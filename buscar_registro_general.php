@@ -8,7 +8,7 @@
 	include("header.html");
 ?>
 </head>
-
+ 
 <body>
 
 <?php 
@@ -22,6 +22,7 @@
 	$rut=$_POST['rut'];
 	$rol=$_POST['rol'];
 	$comuna=$_POST['comuna'];
+
 
   	$resp = $conexion->query("select * from REGISTRO WHERE nombre_corto='$registro' LIMIT 1");  //TRAE EL NOMBRE LARGO DEL REGISTRO
   	$row1 = $resp->fetch_assoc();

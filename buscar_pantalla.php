@@ -30,7 +30,7 @@
 <body>
 
   <?php 
-  $registro="Seleccione el Registro";
+//  $registro="Seleccione el Registro";
   include("conexion/conexion.php");
     $sql1="SELECT * FROM REGISTRO "; //consulta sql
     $result1 = $conexion->query($sql1); //usamos la conexion para dar un resultado a la variable
@@ -48,7 +48,7 @@
 
         <!-- Select Basic -->
         <div class="form-group">
-          <label class="col-md-4 control-label" for="registro">Registro</label>
+          <label class="col-md-4 control-label" for="registro1">Registro</label>
           <div class="col-md-4">
             <select id="registro1" name="registro1" class="form-control">
              <option value="Seleccione el Registro" selected>Seleccione el Registro...</option>
@@ -65,18 +65,16 @@
         </div>
       </div>
       <!-- campo oculto para enviar el nombre del registro -->
-      <input type="hidden" id="registro">
       <div id="form_buscar_pantalla"> 
         <div id="comercio">
           <form name="formulario" class="form-horizontal" method="post" action="buscar_registro_comercio.php">
-		      <input type="hidden" id="registro">
+		      <input type="hidden" id="registro" name="registro" >
 
             <!-- Text input-->
             <div class="form-group">
               <label class="col-md-4 control-label" for="textinput">Nombre</label>  
               <div class="col-md-6">
                 <input id="nombre" name="nombre" type="text" placeholder="Nombre de la sociedad" class="form-control input-md teclado" >
-
               </div>
             </div>
 
@@ -119,13 +117,14 @@
 
           <div id="otroregistro">
             <form name="formulario" class="form-horizontal" method="post" action="buscar_registro_general.php">
-		      <input type="hidden" id="registro">
+		      <input type="hidden" id="registro" name="registro" >
 
               <!-- Text input-->
               <div class="form-group">
                 <label class="col-md-4 control-label" for="textinput">Comprador</label>  
                 <div class="col-md-6">
                   <input id="nombre" name="nombre" type="text" placeholder="Nombre del comprador" class="form-control input-md teclado">
+
                 </div>
               </div>
 
@@ -285,7 +284,6 @@ jQuery(function($) {
   //MUESTRA FORMULARIO BUSQUEDA
     $('#registro1').change(function(){  // Valida que un folio no esté repetido
         var registro = $('#registro1').val(); 
-        $('#registro').val(registro);      
         if (registro=="Seleccione el Registro") {
             $('#form_buscar_pantalla').hide();
         }else{
@@ -293,12 +291,15 @@ jQuery(function($) {
             $('#otroregistro').hide();
             $('#comercio').show();
             $('#form_buscar_pantalla').show();
-            seleccion_campo();
+			$('input[id=registro]').val(registro);      
+
+//            seleccion_campo();
           }else{
             $('#comercio').hide();
             $('#otroregistro').show();
-            $('#form_buscar_pantalla').show();
-            seleccion_campo();
+           $('#form_buscar_pantalla').show();
+			$('input[id=registro]').val(registro);      
+ //            seleccion_campo();
           }
 //                    $('#nombre').focus();
         }
@@ -329,7 +330,7 @@ jQuery(function($) {
       $('.fTab').toggleClass('current');
       $('footer').slideToggle(500);
     });
-*/
+
     var cuenta =0;
     $('#registro1').change(function(){      // ACTIVA AUTOMÁTICAMENTE EL TECLADO VIRTUAL
     if ($('#registro1').val()=="Seleccione el Registro" && cuenta==1) {  // ACTIVA AUTOMÁTICAMENTE EL TECLADO VIRTUAL

@@ -38,7 +38,7 @@
 
 <!-- Text input-->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="textinput">Año</label>  
+  <label class="col-md-4 control-label" for="textinput">git add .</label>  
   <div class="col-md-4">
   <input id="ano" name="ano" placeholder="Año del Registro" class="form-control input-md" required="" type="text">
     

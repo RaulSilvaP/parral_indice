@@ -1,4 +1,8 @@
 <?php 
+//  $registro="Seleccione el Registro";
+  include("conexion/conexion.php");
+    $sql1="SELECT * FROM funcionarios "; //consulta sql
+    $result1 = $conexion->query($sql1); //usamos la conexion para dar un resultado a la variable
 
 
 ?>
@@ -14,16 +18,16 @@
 
 <!-- Select Basic -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="registro">Registro</label>
+  <label class="col-md-4 control-label" for="registro">Funcionario</label>
   <div class="col-md-4">
     <select id="registro" name="registro" class="form-control">
-			<option value="Seleccione el Registro" selected>Seleccione el Registro...</option>
+			<option value="Seleccione el Registro" selected>Seleccione el Funcionario...</option>
 
 		<?php
 		while ($row1 = $result1->fetch_array()) 
 		{
 		?>
-			<option value="<?php echo $row1['nombre_corto']; ?>"><?php echo $row1['nombre_largo']; ?></option>
+			<option value="<?php echo $row1['usuario']; ?>"><?php echo $row1['nombre']; ?></option>
 		<?php
 		}
 		?>
